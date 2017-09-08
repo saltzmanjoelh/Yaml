@@ -351,7 +351,7 @@ private func parseFlowMap (_ acc: [Yaml: Yaml]) -> (Context) -> YAMLResult<Conte
         >>=- (acc.count == 0 ? Resulter.lift : expect(Yaml.TokenType.comma, message: "expected comma"))
         >>- ignoreSpace
         >>=- parseString
-        >>=- checkKeyUniqueness(acc)
+//        >>=- checkKeyUniqueness(acc)
     let k = ck >>- getValue
     let cv = ck
         >>- getContext
@@ -416,7 +416,7 @@ private func parseQuestionMarkkeyValue (_ acc: [Yaml: Yaml]) -> (Context) -> YAM
     let ck = Resulter.lift(context)
         >>=- expect(Yaml.TokenType.questionMark, message: "expected ?")
         >>=- parse
-        >>=- checkKeyUniqueness(acc)
+//        >>=- checkKeyUniqueness(acc)
     let k = ck >>- getValue
     let cv = ck
         >>- getContext
@@ -449,7 +449,7 @@ private func parseStringKeyValue (_ acc: [Yaml: Yaml]) -> (Context) -> YAMLResul
   return { context in
     let ck = Resulter.lift(context)
         >>=- parseString
-        >>=- checkKeyUniqueness(acc)
+//        >>=- checkKeyUniqueness(acc)
     let k = ck >>- getValue
     let cv = ck
         >>- getContext
@@ -592,7 +592,7 @@ private func normalizeBreaks (_ s: String) -> String {
 }
 
 private func unwrapQuotedString (_ s: String) -> String {
-  return s[s.index(after: s.startIndex)..<s.index(before: s.endIndex)]
+  return String(s[s.index(after: s.startIndex)..<s.index(before: s.endIndex)])
 }
 
 private func unescapeSingleQuotes (_ s: String) -> String {
