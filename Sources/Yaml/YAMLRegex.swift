@@ -63,7 +63,7 @@ static func replace (_ regex: NSRegularExpression, block: @escaping ([String]) -
               var captures = [String](repeating: "", count: result.numberOfRanges)
               for i in 0..<result.numberOfRanges {
                 #if os(Linux)
-                let rangeAt = result.range(at: i)
+                let rangeAt = result.rangeAt(i)
                 #else
                     let rangeAt = result.range(at: i)
                 #endif

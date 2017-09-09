@@ -252,17 +252,17 @@ private func parse (_ context: Context) -> YAMLResult<ContextValue> {
   case .anchor:
     let m = peekMatch(context)
 //    let name = m.substring(from: m.index(after: m.startIndex))
-    let name = String(m[m.index(after: m.startIndex)..<m.endIndex])
+    let name = m[m.index(after: m.startIndex)..<m.endIndex]
     let cv = parse(advance(context))
     let v = cv >>- getValue
-    let c = addAlias(name) <^> v <*> (cv >>- getContext)
+    let c = addAlias(String(name)) <^> v <*> (cv >>- getContext)
     return createContextValue <^> c <*> v
 
   case .alias:
     let m = peekMatch(context)
 //    let name = m.substring(from: m.index(after: m.startIndex))
-    let name = String(m[m.index(after: m.startIndex)..<m.endIndex])
-    let value = context.aliases[name]
+    let name = m[m.index(after: m.startIndex)..<m.endIndex]
+    let value = context.aliases[String(name)]
     let err = "unknown alias \(name)"
     return Resulter.`guard`(error(err)(context), check: value != nil)
         >>| Resulter.lift((advance(context), value ?? nil))

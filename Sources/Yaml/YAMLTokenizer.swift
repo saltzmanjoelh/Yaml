@@ -138,7 +138,7 @@ extension Yaml {
               let match = text |> Yaml.Regex.substringWithRange(range)
               let lastindent = indents.last ?? 0
 //              let rest = match.substring(from: match.index(after: match.startIndex))
-              let rest = String(match[match.index(after: match.startIndex)..<match.endIndex])
+              let rest = match[match.index(after: match.startIndex)..<match.endIndex]
               let spaces = rest.characters.count
               let nestedBlockSequence =
                 Yaml.Regex.matches(text |> Yaml.Regex.substringFromIndex(rangeend), regex: dashPattern!)
