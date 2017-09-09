@@ -112,7 +112,8 @@ private let tokenPatterns: [TokenPattern] = [
 extension Yaml {
   static func escapeErrorContext (_ text: String) -> String {
     let endIndex = text.index(text.startIndex, offsetBy: 50, limitedBy: text.endIndex) ?? text.endIndex
-    let escaped = text.substring(to: endIndex)
+//    let escaped = text.substring(to: endIndex)
+    let escaped = String(text[text.startIndex..<endIndex])
       |> Yaml.Regex.replace(Yaml.Regex.regex("\\r"), template: "\\\\r")
       |> Yaml.Regex.replace(Yaml.Regex.regex("\\n"), template: "\\\\n")
       |> Yaml.Regex.replace(Yaml.Regex.regex("\""), template: "\\\\\"")
@@ -136,7 +137,8 @@ extension Yaml {
             case .newLine:
               let match = text |> Yaml.Regex.substringWithRange(range)
               let lastindent = indents.last ?? 0
-              let rest = match.substring(from: match.index(after: match.startIndex))
+//              let rest = match.substring(from: match.index(after: match.startIndex))
+              let rest = String(match[match.index(after: match.startIndex)..<match.endIndex])
               let spaces = rest.characters.count
               let nestedBlockSequence =
                 Yaml.Regex.matches(text |> Yaml.Regex.substringFromIndex(rangeend), regex: dashPattern!)
@@ -170,8 +172,8 @@ extension Yaml {
               let indent = match.characters.count
               indents.append((indents.last ?? 0) + indent)
               matchList.append(
-                TokenMatch(tokenPattern.type, match.substring(to: index)))
-              matchList.append(TokenMatch(.indent, match.substring(from: index)))
+                TokenMatch(tokenPattern.type, String(match[match.startIndex..<index])))
+              matchList.append(TokenMatch(.indent, String(match[match.startIndex..<index])))
               
             case .colonFO:
               if insideFlow > 0 {

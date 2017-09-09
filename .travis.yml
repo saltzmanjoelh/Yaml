@@ -1,10 +1,4 @@
-os:
-  - linux
-  - osx
-language: generic
-sudo: required
-dist: trusty
-osx_image: xcode8
+language: swift
+osx_image: xcode9
 script:
-  - eval "$(curl -sL https://swift.vapor.sh/ci-3.1)"
-  - eval "$(curl -sL https://swift.vapor.sh/codecov)"
+  - "swift test"
