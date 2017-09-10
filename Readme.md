@@ -1,10 +1,10 @@
-# YamlSwift
+# Yaml
 [![Build Status][image-1]][1] [![Swift Version][image-2]][2]
 
 
 Load [YAML](http://yaml.org) and [JSON](http://json.org) documents using [Swift](http://www.apple.com/swift/).
 
-`YamlSwift` parses a string of YAML document(s) (or a JSON document) and returns a `Yaml` enum value representing that string.
+`Yaml` parses a string of YAML document(s) (or a JSON document) and returns a `Yaml` enum value representing that string.
 
 
 
@@ -292,7 +292,7 @@ print(value[0]["Swift"].count)  // nil
 MIT
 
 
-[1]:	https://travis-ci.org/saltzmanjoelh/YamlSwift
+[1]:	https://travis-ci.org/saltzmanjoelh/Yaml
 [2]:	https://swift.org "Swift"
 
 [image-1]:	https://travis-ci.org/saltzmanjoelh/XcodeHelperCli.svg?branch=master
