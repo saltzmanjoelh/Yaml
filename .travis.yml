@@ -1,4 +1,4 @@
 language: swift
 osx_image: xcode9
 script:
-  - "swift test"
+  - "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift test"
