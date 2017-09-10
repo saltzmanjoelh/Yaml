@@ -1,4 +1,6 @@
 # YamlSwift
+[![Build Status][image-1]][1] [![Swift Version][image-2]][2]
+
 
 Load [YAML](http://yaml.org) and [JSON](http://json.org) documents using [Swift](http://www.apple.com/swift/).
 
@@ -288,3 +290,10 @@ print(value[0]["Swift"].count)  // nil
 ## License
 
 MIT
+
+
+[1]:	https://travis-ci.org/saltzmanjoelh/YamlSwift
+[2]:	https://swift.org "Swift"
+
+[image-1]:	https://travis-ci.org/saltzmanjoelh/XcodeHelperCli.svg?branch=master
+[image-2]:	https://img.shields.io/badge/swift-version%203-blue.svg
