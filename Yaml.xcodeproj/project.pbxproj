@@ -110,7 +110,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -118,7 +118,6 @@
 				OBJ_15 /* Tests */,
 				OBJ_19 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -166,6 +165,7 @@
 			buildPhases = (
 				OBJ_42 /* Sources */,
 				OBJ_49 /* Frameworks */,
+				380D8883205EFEC800FAF453 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -208,7 +208,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,6 +220,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		380D8883205EFEC800FAF453 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xchelper symlink-dependencies && xchelper docker-build";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_26 /* Sources */ = {
